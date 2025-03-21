@@ -1,3 +1,9 @@
+<div class="filament-hidden">
+
+![FilaKit](https://raw.githubusercontent.com/jeffersongoncalves/filakit/master/art/jeffersongoncalves-filakit.png)
+
+</div>
+
 # FilaKit Start Kit Filament 3.x and Laravel 12.x
 
 ## About FilaKit
