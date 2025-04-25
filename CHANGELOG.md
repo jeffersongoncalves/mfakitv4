@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.1.9 - 2025-04-25
+
+### What's Changed
+
+* build(deps): bump the actions-deps group with 5 updates by @dependabot in https://github.com/jeffersongoncalves/filakit/pull/5
+* build(deps-dev): bump vite from 6.2.5 to 6.2.6 in the npm_and_yarn group by @dependabot in https://github.com/jeffersongoncalves/filakit/pull/6
+* build(deps): bump the actions-deps group with 4 updates by @dependabot in https://github.com/jeffersongoncalves/filakit/pull/7
+* Updated README.md by @mmonari in https://github.com/jeffersongoncalves/filakit/pull/8
+* build(deps-dev): bump vite from 6.3.1 to 6.3.2 in the actions-deps group by @dependabot in https://github.com/jeffersongoncalves/filakit/pull/10
+* build(deps): bump the actions-deps group with 6 updates by @dependabot in https://github.com/jeffersongoncalves/filakit/pull/11
+
+### New Contributors
+
+* @mmonari made their first contribution in https://github.com/jeffersongoncalves/filakit/pull/8
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filakit/compare/3.1.8...3.1.9
+
 ## 3.1.8 - 2025-04-04
 
 ### What's Changed
