@@ -24,12 +24,6 @@ use function view;
 
 class AppServiceProvider extends ServiceProvider
 {
-    private string $defaultDateDisplayFormat = 'd/m/Y';
-
-    private string $defaultDateTimeDisplayFormat = 'd/m/Y H:i:s';
-
-    private string $defaultCurrency = 'brl';
-
     /**
      * Register any application services.
      */
@@ -109,9 +103,14 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::configureUsing(function (Schema $schema) {
             return $schema
-                ->defaultTimeDisplayFormat($this->defaultDateTimeDisplayFormat)
-                ->defaultDateDisplayFormat($this->defaultDateDisplayFormat)
-                ->defaultCurrency($this->defaultCurrency);
+                ->defaultCurrency(config('filakit.defaultCurrency'))
+                ->defaultDateDisplayFormat(config('filakit.defaultDateDisplayFormat'))
+                ->defaultIsoDateDisplayFormat(config('filakit.defaultIsoDateDisplayFormat'))
+                ->defaultDateTimeDisplayFormat(config('filakit.defaultDateTimeDisplayFormat'))
+                ->defaultIsoDateTimeDisplayFormat(config('filakit.defaultIsoDateTimeDisplayFormat'))
+                ->defaultNumberLocale(config('filakit.defaultNumberLocale'))
+                ->defaultTimeDisplayFormat(config('filakit.defaultTimeDisplayFormat'))
+                ->defaultIsoTimeDisplayFormat(config('filakit.defaultIsoTimeDisplayFormat'));
         });
     }
 
@@ -203,9 +202,14 @@ class AppServiceProvider extends ServiceProvider
     {
         Tables\Table::configureUsing(function (Tables\Table $table) {
             return $table
-                ->defaultTimeDisplayFormat($this->defaultDateTimeDisplayFormat)
-                ->defaultDateDisplayFormat($this->defaultDateDisplayFormat)
-                ->defaultCurrency($this->defaultCurrency);
+                ->defaultCurrency(config('filakit.defaultCurrency'))
+                ->defaultDateDisplayFormat(config('filakit.defaultDateDisplayFormat'))
+                ->defaultIsoDateDisplayFormat(config('filakit.defaultIsoDateDisplayFormat'))
+                ->defaultDateTimeDisplayFormat(config('filakit.defaultDateTimeDisplayFormat'))
+                ->defaultIsoDateTimeDisplayFormat(config('filakit.defaultIsoDateTimeDisplayFormat'))
+                ->defaultNumberLocale(config('filakit.defaultNumberLocale'))
+                ->defaultTimeDisplayFormat(config('filakit.defaultTimeDisplayFormat'))
+                ->defaultIsoTimeDisplayFormat(config('filakit.defaultIsoTimeDisplayFormat'));
         });
         Tables\Columns\Column::configureUsing(function (Tables\Columns\Column $column) {
             return $column->translateLabel();
