@@ -1,6 +1,7 @@
 @import '../../../../vendor/filament/filament/resources/css/theme.css';
 
 @source '../../../../app/Filament/App/**/*';
+@source '../../../../resources/views/components/**/*';
 @source '../../../../resources/views/filament/App/**/*';
 
 ::-webkit-scrollbar {
