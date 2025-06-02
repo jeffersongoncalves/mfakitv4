@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.0.0-alpha8 - 2025-06-02
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/4.0.0-alpha7...4.0.0-alpha8
+
 ## 4.0.0-alpha7 - 2025-05-19
 
 **Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/4.0.0-alpha6...4.0.0-alpha7
