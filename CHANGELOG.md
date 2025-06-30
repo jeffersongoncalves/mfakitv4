@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## v4.0.0-beta11 - 2025-06-30
+
+### What's Changed
+
+* build(deps): bump the actions-deps group with 3 updates by @dependabot in https://github.com/jeffersongoncalves/filakitv4/pull/8
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/v4.0.0-beta10...v4.0.0-beta11
+
 ## v4.0.0-beta10 - 2025-06-26
 
 **Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/v4.0.0-beta9...v4.0.0-beta10
