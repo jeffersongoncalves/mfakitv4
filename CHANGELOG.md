@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## v4.0.0-beta18 - 2025-07-21
+
+### What's Changed
+
+* build(deps-dev): bump vite from 7.0.4 to 7.0.5 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/31
+* build(deps): bump the actions-deps group with 5 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/32
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/v4.0.0-beta17...v4.0.0-beta18
+
 ## v4.0.0-beta17 - 2025-07-18
 
 ### What's Changed
