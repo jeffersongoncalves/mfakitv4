@@ -25,3 +25,4 @@ phpstan.neon
 /.zed
 /nbproject
 .rnd
+.output.txt

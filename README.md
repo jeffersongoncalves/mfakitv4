@@ -183,6 +183,50 @@ The `config/filakit.php` file centralizes the configuration of the starter kit, 
 - Branding options (logo, colors)
 - Authentication guards
 
+## User Profile — joaopaulolndev/filament-edit-profile
+
+This project already comes with the Filament Edit Profile plugin integrated for the Admin and App panels. It adds a complete profile editing page with avatar, language, theme color, security (tokens, MFA), browser sessions, and email/password change.
+
+- Routes (defaults in this project):
+  - Admin: /admin/my-profile
+  - App: /app/my-profile
+- Navigation: by default, the page does not appear in the menu (shouldRegisterNavigation(false)). If you want to show it in the sidebar menu, change it to true in the panel provider.
+
+Where to configure
+- Panel providers
+  - Admin: app/Providers/Filament/AdminPanelProvider.php
+  - App: app/Providers/Filament/AppPanelProvider.php
+  In these files you can adjust:
+  - ->slug('my-profile') to change the URL (e.g., 'profile')
+  - ->setTitle('My Profile') and ->setNavigationLabel('My Profile')
+  - ->setNavigationGroup('Group Profile'), ->setIcon('heroicon-o-user'), ->setSort(10)
+  - ->shouldRegisterNavigation(true|false) to show/hide it in the menu
+  - Shown forms: ->shouldShowEmailForm(), ->shouldShowLocaleForm([...]), ->shouldShowThemeColorForm(), ->shouldShowSanctumTokens(), ->shouldShowMultiFactorAuthentication(), ->shouldShowBrowserSessionsForm(), ->shouldShowAvatarForm()
+
+- General settings: config/filament-edit-profile.php
+  - locales: language options available on the profile page
+  - locale_column: column used in your model for language/locale (default: locale)
+  - theme_color_column: column for theme color (default: theme_color)
+  - avatar_column: avatar column (default: avatar_url)
+  - disk: storage disk used for the avatar (default: public)
+  - visibility: file visibility (default: public)
+
+Migrations and models
+- The required columns are already included in this kit’s default migrations (users and admins): avatar_url, locale and theme_color, using the names defined in config/filament-edit-profile.php.
+- The App\Models\User and App\Models\Admin models already read the avatar using the plugin configuration (getFilamentAvatarUrl).
+
+Avatar storage
+- Make sure the filesystem disk is configured and that the storage link exists:
+  php artisan storage:link
+- Adjust the disk and visibility in the config file according to your infrastructure.
+
+Quick access
+- Via direct URL: /admin/my-profile or /app/my-profile
+- To make it visible in the sidebar navigation, set shouldRegisterNavigation(true) in the respective Provider.
+
+Reference
+- Plugin repository: https://github.com/joaopaulolndev/filament-edit-profile
+
 ## Resources
 
 FilaKit includes support for:
