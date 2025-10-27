@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.1.10 - 2025-10-27
+
+### What's Changed
+
+* build(deps): bump joaopaulolndev/filament-edit-profile from 2.0.12 to 2.0.13 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/55
+* build(deps): bump the actions-deps group with 3 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/56
+* build(deps): bump the actions-deps group with 4 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/57
+* build(deps): bump filament/filament from 4.0.18 to 4.0.19 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/58
+* build(deps): bump the actions-deps group with 3 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/59
+* build(deps): bump the actions-deps group across 1 directory with 3 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/61
+* build(deps): bump the actions-deps group across 1 directory with 3 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/64
+* build(deps): bump the actions-deps group with 2 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/65
+* build(deps): bump stefanzweifel/git-auto-commit-action from 6 to 7 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/66
+* build(deps): bump the actions-deps group with 2 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/67
+* build(deps): bump filament/filament from 4.1.8 to 4.1.9 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/68
+* build(deps-dev): bump vite from 7.1.5 to 7.1.11 in the npm_and_yarn group across 1 directory by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/69
+* build(deps-dev): bump the actions-deps group with 5 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/70
+* build(deps): bump the actions-deps group with 2 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/71
+* build(deps): bump laravel/framework from 12.35.0 to 12.35.1 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/72
+* build(deps-dev): bump the actions-deps group with 3 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/73
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/4.0.15...4.1.10
+
 ## 4.0.15 - 2025-09-15
 
 **Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/4.0.13...4.0.15
