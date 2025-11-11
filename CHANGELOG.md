@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.2.0 - 2025-11-08
+
+### What's Changed
+
+* build(deps-dev): bump axios from 1.12.2 to 1.13.0 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/74
+* build(deps-dev): bump axios from 1.13.0 to 1.13.1 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/75
+* build(deps): bump the actions-deps group with 3 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/76
+* build(deps-dev): bump axios from 1.13.1 to 1.13.2 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/77
+* build(deps): bump laravel/framework from 12.36.1 to 12.37.0 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/78
+* build(deps-dev): bump vite from 7.1.12 to 7.2.0 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/79
+* build(deps-dev): bump the actions-deps group with 3 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/80
+* build(deps-dev): bump vite from 7.2.1 to 7.2.2 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/81
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/4.1.10...4.2.0
+
 ## 4.1.10 - 2025-10-27
 
 ### What's Changed
