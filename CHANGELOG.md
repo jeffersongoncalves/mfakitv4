@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.3.0 - 2025-12-05
+
+### What's Changed
+
+* build(deps): bump achyutn/filament-log-viewer from 1.5.3 to 1.6 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/91
+* build(deps-dev): bump vite from 7.2.4 to 7.2.6 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/92
+* build(deps): bump achyutn/filament-log-viewer from 1.6 to 1.6.1 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/93
+* build(deps): bump the actions-deps group with 2 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/94
+* build(deps): bump livewire/livewire from 3.7.0 to 3.7.1 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/filakitv4/pull/95
+
+**Full Changelog**: https://github.com/jeffersongoncalves/filakitv4/compare/4.2.4...4.3.0
+
 ## 4.2.4 - 2025-11-28
 
 ### What's Changed
