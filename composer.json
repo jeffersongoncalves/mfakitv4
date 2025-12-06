@@ -22,7 +22,8 @@
         "joaopaulolndev/filament-edit-profile": "^2.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.6"
+        "livewire/livewire": "^3.6",
+        "wallacemartinss/filament-icon-picker": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.14",

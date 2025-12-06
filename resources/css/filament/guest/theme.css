@@ -3,6 +3,7 @@
 @source '../../../../app/Filament/Guest/**/*';
 @source '../../../../resources/views/components/**/*';
 @source '../../../../resources/views/filament/guest/**/*';
+@source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
 
 ::-webkit-scrollbar {
     width: .56vw !important;
