@@ -37,7 +37,7 @@ class AppPanelProvider extends PanelProvider
                 'primary' => Color::Green,
             ])
             ->brandLogo(fn () => Vite::asset(config('evolutionkit.favicon.logo')))
-            ->brandLogoHeight(fn () => request()->is('app/login', 'app/password-reset/*') ? '121px' : '50px')
+            ->brandLogoHeight('40px')
             ->viteTheme('resources/css/filament/app/theme.css')
             ->defaultThemeMode(config('evolutionkit.theme_mode', ThemeMode::Dark))
             ->discoverClusters(in: app_path('Filament/App/Clusters'), for: 'App\\Filament\\App\\Clusters')

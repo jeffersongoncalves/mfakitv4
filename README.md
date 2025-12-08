@@ -238,6 +238,7 @@ What’s already configured in this kit
 1) Publish config and run migrations
 ```bash
 php artisan vendor:publish --tag="filament-evolution-config"
+php artisan vendor:publish --tag="filament-evolution-migrations"
 php artisan migrate
 ```
 

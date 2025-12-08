@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Amber,
             ])
             ->brandLogo(fn () => Vite::asset(config('evolutionkit.favicon.logo')))
-            ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '121px' : '50px')
+            ->brandLogoHeight('40px')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->defaultThemeMode(config('evolutionkit.theme_mode', ThemeMode::Dark))
             ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')

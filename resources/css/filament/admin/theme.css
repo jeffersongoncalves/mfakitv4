@@ -4,6 +4,8 @@
 @source '../../../../resources/views/components/**/*';
 @source '../../../../resources/views/filament/**/*';
 @source '../../../../vendor/wallacemartinss/filament-icon-picker/resources/views/**/*';
+@source '../../../../vendor/wallacemartinss/filament-evolution/resources/views/**/*';
+@source '../../../../vendor/wallacemartinss/filament-evolution/src/**/*';
 
 ::-webkit-scrollbar {
     width: .56vw !important;
