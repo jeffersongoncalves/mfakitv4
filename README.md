@@ -360,17 +360,7 @@ EVOLUTION_MEDIA_MAX_SIZE=16384
 ```
 You can also specify a custom disk per action: `SendWhatsappMessageAction::make()->disk('s3');`
 
-7) Multi‑tenancy (optional)
-If you use Filament’s native tenancy, enable it so all resources are scoped by tenant:
-```env
-EVOLUTION_TENANCY_ENABLED=true
-EVOLUTION_TENANT_COLUMN=team_id
-EVOLUTION_TENANT_TABLE=teams
-EVOLUTION_TENANT_MODEL=App\Models\Team
-EVOLUTION_TENANT_COLUMN_TYPE=uuid
-```
-
-8) Cleanup command
+7) Cleanup command
 Remove old webhook/message records automatically:
 ```bash
 php artisan evolution:cleanup           # uses config defaults
