@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec918fdc4c085c24531c7612932a99d5",
+    "content-hash": "972221be46971f51ca4b993abd5dfa36",
     "packages": [
         {
             "name": "achyutn/filament-log-viewer",
@@ -9260,16 +9260,16 @@
         },
         {
             "name": "wallacemartinss/filament-whatsapp-conector",
-            "version": "v1.x-dev",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wallacemartinss/filament-whatsapp-conector.git",
-                "reference": "d4a3415efe4760218cffef0b6bc5d7e354f0cfd2"
+                "reference": "509de345a30ba31e4768d995b263e2cab51a0548"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wallacemartinss/filament-whatsapp-conector/zipball/d4a3415efe4760218cffef0b6bc5d7e354f0cfd2",
-                "reference": "d4a3415efe4760218cffef0b6bc5d7e354f0cfd2",
+                "url": "https://api.github.com/repos/wallacemartinss/filament-whatsapp-conector/zipball/509de345a30ba31e4768d995b263e2cab51a0548",
+                "reference": "509de345a30ba31e4768d995b263e2cab51a0548",
                 "shasum": ""
             },
             "require": {
@@ -9290,7 +9290,6 @@
                 "phpstan/phpstan-deprecation-rules": "^2.0",
                 "phpstan/phpstan-phpunit": "^2.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -9328,9 +9327,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wallacemartinss/filament-whatsapp-conector/issues",
-                "source": "https://github.com/wallacemartinss/filament-whatsapp-conector/tree/v1"
+                "source": "https://github.com/wallacemartinss/filament-whatsapp-conector/tree/v1.0.0"
             },
-            "time": "2025-12-07T18:49:26+00:00"
+            "time": "2025-12-08T01:21:58+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -13064,9 +13063,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "wallacemartinss/filament-whatsapp-conector": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

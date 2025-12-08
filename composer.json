@@ -24,7 +24,7 @@
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",
         "wallacemartinss/filament-icon-picker": "^1.2",
-        "wallacemartinss/filament-whatsapp-conector": "v1.x-dev"
+        "wallacemartinss/filament-whatsapp-conector": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.14",
