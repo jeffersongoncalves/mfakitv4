@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Vite;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
+use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -38,10 +39,10 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(fn () => Vite::asset(config('filakit.favicon.logo')))
+            ->brandLogo(fn () => Vite::asset(config('evolutionkit.favicon.logo')))
             ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '121px' : '50px')
             ->viteTheme('resources/css/filament/admin/theme.css')
-            ->defaultThemeMode(config('filakit.theme_mode', ThemeMode::Dark))
+            ->defaultThemeMode(config('evolutionkit.theme_mode', ThemeMode::Dark))
             ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
@@ -94,6 +95,10 @@ class AdminPanelProvider extends PanelProvider
                     ->shouldShowMultiFactorAuthentication()
                     ->shouldShowBrowserSessionsForm()
                     ->shouldShowAvatarForm(),
+                FilamentEvolutionPlugin::make()
+                    ->whatsappInstanceResource()
+                    ->viewMessageHistory()
+                    ->viewWebhookLogs(),
             ])
             ->userMenuItems([
                 'profile' => Action::make('profile')

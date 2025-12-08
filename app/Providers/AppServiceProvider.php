@@ -32,16 +32,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        if (config('filakit.admin_panel_enabled', false)) {
+        if (config('evolutionkit.admin_panel_enabled', false)) {
             $this->app->register(AdminPanelProvider::class);
         }
-        if (config('filakit.app_panel_enabled', false)) {
+        if (config('evolutionkit.app_panel_enabled', false)) {
             $this->app->register(AppPanelProvider::class);
         }
-        if (config('filakit.guest_panel_enabled', false)) {
+        if (config('evolutionkit.guest_panel_enabled', false)) {
             $this->app->register(GuestPanelProvider::class);
         }
-        if (config('filakit.favicon.enabled')) {
+        if (config('evolutionkit.favicon.enabled')) {
             FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.favicon'));
         }
         FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.js-md5'));
@@ -113,14 +113,14 @@ class AppServiceProvider extends ServiceProvider
     {
         Schemas\Schema::configureUsing(function (Schemas\Schema $schema) {
             return $schema
-                ->defaultCurrency(config('filakit.defaultCurrency'))
-                ->defaultDateDisplayFormat(config('filakit.defaultDateDisplayFormat'))
-                ->defaultIsoDateDisplayFormat(config('filakit.defaultIsoDateDisplayFormat'))
-                ->defaultDateTimeDisplayFormat(config('filakit.defaultDateTimeDisplayFormat'))
-                ->defaultIsoDateTimeDisplayFormat(config('filakit.defaultIsoDateTimeDisplayFormat'))
-                ->defaultNumberLocale(config('filakit.defaultNumberLocale'))
-                ->defaultTimeDisplayFormat(config('filakit.defaultTimeDisplayFormat'))
-                ->defaultIsoTimeDisplayFormat(config('filakit.defaultIsoTimeDisplayFormat'));
+                ->defaultCurrency(config('evolutionkit.defaultCurrency'))
+                ->defaultDateDisplayFormat(config('evolutionkit.defaultDateDisplayFormat'))
+                ->defaultIsoDateDisplayFormat(config('evolutionkit.defaultIsoDateDisplayFormat'))
+                ->defaultDateTimeDisplayFormat(config('evolutionkit.defaultDateTimeDisplayFormat'))
+                ->defaultIsoDateTimeDisplayFormat(config('evolutionkit.defaultIsoDateTimeDisplayFormat'))
+                ->defaultNumberLocale(config('evolutionkit.defaultNumberLocale'))
+                ->defaultTimeDisplayFormat(config('evolutionkit.defaultTimeDisplayFormat'))
+                ->defaultIsoTimeDisplayFormat(config('evolutionkit.defaultIsoTimeDisplayFormat'));
         });
     }
 
@@ -204,14 +204,14 @@ class AppServiceProvider extends ServiceProvider
     {
         Tables\Table::configureUsing(function (Tables\Table $table) {
             return $table
-                ->defaultCurrency(config('filakit.defaultCurrency'))
-                ->defaultDateDisplayFormat(config('filakit.defaultDateDisplayFormat'))
-                ->defaultIsoDateDisplayFormat(config('filakit.defaultIsoDateDisplayFormat'))
-                ->defaultDateTimeDisplayFormat(config('filakit.defaultDateTimeDisplayFormat'))
-                ->defaultIsoDateTimeDisplayFormat(config('filakit.defaultIsoDateTimeDisplayFormat'))
-                ->defaultNumberLocale(config('filakit.defaultNumberLocale'))
-                ->defaultTimeDisplayFormat(config('filakit.defaultTimeDisplayFormat'))
-                ->defaultIsoTimeDisplayFormat(config('filakit.defaultIsoTimeDisplayFormat'));
+                ->defaultCurrency(config('evolutionkit.defaultCurrency'))
+                ->defaultDateDisplayFormat(config('evolutionkit.defaultDateDisplayFormat'))
+                ->defaultIsoDateDisplayFormat(config('evolutionkit.defaultIsoDateDisplayFormat'))
+                ->defaultDateTimeDisplayFormat(config('evolutionkit.defaultDateTimeDisplayFormat'))
+                ->defaultIsoDateTimeDisplayFormat(config('evolutionkit.defaultIsoDateTimeDisplayFormat'))
+                ->defaultNumberLocale(config('evolutionkit.defaultNumberLocale'))
+                ->defaultTimeDisplayFormat(config('evolutionkit.defaultTimeDisplayFormat'))
+                ->defaultIsoTimeDisplayFormat(config('evolutionkit.defaultIsoTimeDisplayFormat'));
         });
         Tables\Columns\Column::configureUsing(function (Tables\Columns\Column $column) {
             return $column->translateLabel();
