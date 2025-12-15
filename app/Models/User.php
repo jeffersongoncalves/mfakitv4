@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
+use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthentication;
 
 /**
  * @property int $id
@@ -34,6 +35,8 @@ use Illuminate\Support\Facades\Storage;
  * @property string|null $theme_color
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property bool $has_whatsapp_authentication
+ * @property string|null $phone
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  *
@@ -46,10 +49,12 @@ use Illuminate\Support\Facades\Storage;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCustomFields($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereHasWhatsappAuthentication($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLocale($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereThemeColor($value)
@@ -58,7 +63,7 @@ use Illuminate\Support\Facades\Storage;
  * @mixin \Eloquent
  */
 #[ObservedBy(UserObserver::class)]
-class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, HasWhatsAppAuthentication, MustVerifyEmailContract
 {
     use Authenticatable;
     use Authorizable;
@@ -76,6 +81,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'custom_fields',
         'locale',
         'theme_color',
+        'phone',
+        'has_whatsapp_authentication',
     ];
 
     protected $hidden = [
@@ -114,6 +121,18 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             'password' => 'hashed',
             'status' => 'boolean',
             'custom_fields' => 'array',
+            'has_whatsapp_authentication' => 'boolean',
         ];
+    }
+
+    public function hasWhatsAppAuthentication(): bool
+    {
+        return $this->has_whatsapp_authentication;
+    }
+
+    public function toggleWhatsAppAuthentication(bool $condition): void
+    {
+        $this->has_whatsapp_authentication = $condition;
+        $this->save();
     }
 }

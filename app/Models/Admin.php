@@ -35,6 +35,8 @@ use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthent
  * @property string|null $theme_color
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property bool $has_whatsapp_authentication
+ * @property string|null $phone
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  *
@@ -47,10 +49,12 @@ use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthent
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereCustomFields($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereHasWhatsappAuthentication($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereLocale($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereThemeColor($value)
@@ -59,7 +63,7 @@ use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthent
  * @mixin \Eloquent
  */
 #[ObservedBy(AdminObserver::class)]
-class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract, HasWhatsAppAuthentication
+class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, HasWhatsAppAuthentication, MustVerifyEmailContract
 {
     use Authenticatable;
     use Authorizable;

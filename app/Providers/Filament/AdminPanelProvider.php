@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(fn() => Vite::asset(config('mfakit.favicon.logo')))
+            ->brandLogo(fn () => Vite::asset(config('mfakit.favicon.logo')))
             ->brandLogoHeight('40px')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->defaultThemeMode(config('mfakit.theme_mode', ThemeMode::Dark))
@@ -104,8 +104,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->userMenuItems([
                 'profile' => Action::make('profile')
-                    ->label(fn(): string => __('My Profile'))
-                    ->url(fn(): string => EditProfilePage::getUrl())
+                    ->label(fn (): string => __('My Profile'))
+                    ->url(fn (): string => EditProfilePage::getUrl())
                     ->icon('heroicon-m-user-circle'),
             ])
             ->multiFactorAuthentication([

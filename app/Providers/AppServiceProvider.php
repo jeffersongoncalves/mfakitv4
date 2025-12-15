@@ -5,7 +5,6 @@ namespace App\Providers;
 use App\Providers\Filament\AdminPanelProvider;
 use App\Providers\Filament\AppPanelProvider;
 use App\Providers\Filament\GuestPanelProvider;
-use App\View\Components\UnsavedActionChangesAlert;
 use Filament\Actions;
 use Filament\Forms;
 use Filament\Infolists;
@@ -19,7 +18,6 @@ use Filament\Tables;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -44,11 +42,11 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(GuestPanelProvider::class);
         }
         if (config('mfakit.favicon.enabled')) {
-            FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn(): View => view('components.favicon'));
+            FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.favicon'));
         }
-        FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn(): View => view('components.js-md5'));
-        FilamentView::registerRenderHook(PanelsRenderHook::BODY_END, fn(): View => view('components.unsaved-action-changes-alert'));
-        FilamentView::registerRenderHook(PanelsRenderHook::BODY_END, fn(): View => view('components.unsaved-action-changes-alert-modal'));
+        FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.js-md5'));
+        FilamentView::registerRenderHook(PanelsRenderHook::BODY_END, fn (): View => view('components.unsaved-action-changes-alert'));
+        FilamentView::registerRenderHook(PanelsRenderHook::BODY_END, fn (): View => view('components.unsaved-action-changes-alert-modal'));
     }
 
     /**
@@ -56,7 +54,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (!app()->isLocal()) {
+        if (! app()->isLocal()) {
             URL::forceHttps();
             Vite::useAggressivePrefetching();
         }
@@ -148,7 +146,7 @@ class AppServiceProvider extends ServiceProvider
             return $component
                 ->native(false)
                 ->selectablePlaceholder(function (Forms\Components\Select $component) {
-                    return !$component->isRequired();
+                    return ! $component->isRequired();
                 })
                 ->searchable(function (Forms\Components\Select $component) {
                     return $component->hasRelationship();

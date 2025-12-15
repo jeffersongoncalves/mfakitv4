@@ -2270,16 +2270,16 @@
         },
         {
             "name": "jeffersongoncalves/filament-multifactor-whatsapp",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp.git",
-                "reference": "ac4a8618c2520bcb214b43e2ba02069ca63275ce"
+                "reference": "28527c2680f98826258cf4c1e9bd9dcd642715f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeffersongoncalves/filament-multifactor-whatsapp/zipball/ac4a8618c2520bcb214b43e2ba02069ca63275ce",
-                "reference": "ac4a8618c2520bcb214b43e2ba02069ca63275ce",
+                "url": "https://api.github.com/repos/jeffersongoncalves/filament-multifactor-whatsapp/zipball/28527c2680f98826258cf4c1e9bd9dcd642715f3",
+                "reference": "28527c2680f98826258cf4c1e9bd9dcd642715f3",
                 "shasum": ""
             },
             "require": {
@@ -2338,9 +2338,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp/issues",
-                "source": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp/tree/1.0.0"
+                "source": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp/tree/1.0.1"
             },
-            "time": "2025-12-09T02:46:05+00:00"
+            "time": "2025-12-09T15:46:20+00:00"
         },
         {
             "name": "jenssegers/agent",
