@@ -1,4 +1,4 @@
-name: evolutionkitv4
+name: evolution
 php: '8.4'
 secured: true
 aliases: {  }

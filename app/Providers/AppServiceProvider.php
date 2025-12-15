@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Providers\Filament\AdminPanelProvider;
 use App\Providers\Filament\AppPanelProvider;
 use App\Providers\Filament\GuestPanelProvider;
+use App\View\Components\UnsavedActionChangesAlert;
 use Filament\Actions;
 use Filament\Forms;
 use Filament\Infolists;
@@ -18,6 +19,7 @@ use Filament\Tables;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
@@ -32,19 +34,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        if (config('evolutionkit.admin_panel_enabled', false)) {
+        if (config('mfakit.admin_panel_enabled', false)) {
             $this->app->register(AdminPanelProvider::class);
         }
-        if (config('evolutionkit.app_panel_enabled', false)) {
+        if (config('mfakit.app_panel_enabled', false)) {
             $this->app->register(AppPanelProvider::class);
         }
-        if (config('evolutionkit.guest_panel_enabled', false)) {
+        if (config('mfakit.guest_panel_enabled', false)) {
             $this->app->register(GuestPanelProvider::class);
         }
-        if (config('evolutionkit.favicon.enabled')) {
-            FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.favicon'));
+        if (config('mfakit.favicon.enabled')) {
+            FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn(): View => view('components.favicon'));
         }
-        FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.js-md5'));
+        FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn(): View => view('components.js-md5'));
+        FilamentView::registerRenderHook(PanelsRenderHook::BODY_END, fn(): View => view('components.unsaved-action-changes-alert'));
+        FilamentView::registerRenderHook(PanelsRenderHook::BODY_END, fn(): View => view('components.unsaved-action-changes-alert-modal'));
     }
 
     /**
@@ -52,7 +56,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (! app()->isLocal()) {
+        if (!app()->isLocal()) {
             URL::forceHttps();
             Vite::useAggressivePrefetching();
         }
@@ -113,14 +117,14 @@ class AppServiceProvider extends ServiceProvider
     {
         Schemas\Schema::configureUsing(function (Schemas\Schema $schema) {
             return $schema
-                ->defaultCurrency(config('evolutionkit.defaultCurrency'))
-                ->defaultDateDisplayFormat(config('evolutionkit.defaultDateDisplayFormat'))
-                ->defaultIsoDateDisplayFormat(config('evolutionkit.defaultIsoDateDisplayFormat'))
-                ->defaultDateTimeDisplayFormat(config('evolutionkit.defaultDateTimeDisplayFormat'))
-                ->defaultIsoDateTimeDisplayFormat(config('evolutionkit.defaultIsoDateTimeDisplayFormat'))
-                ->defaultNumberLocale(config('evolutionkit.defaultNumberLocale'))
-                ->defaultTimeDisplayFormat(config('evolutionkit.defaultTimeDisplayFormat'))
-                ->defaultIsoTimeDisplayFormat(config('evolutionkit.defaultIsoTimeDisplayFormat'));
+                ->defaultCurrency(config('mfakit.defaultCurrency'))
+                ->defaultDateDisplayFormat(config('mfakit.defaultDateDisplayFormat'))
+                ->defaultIsoDateDisplayFormat(config('mfakit.defaultIsoDateDisplayFormat'))
+                ->defaultDateTimeDisplayFormat(config('mfakit.defaultDateTimeDisplayFormat'))
+                ->defaultIsoDateTimeDisplayFormat(config('mfakit.defaultIsoDateTimeDisplayFormat'))
+                ->defaultNumberLocale(config('mfakit.defaultNumberLocale'))
+                ->defaultTimeDisplayFormat(config('mfakit.defaultTimeDisplayFormat'))
+                ->defaultIsoTimeDisplayFormat(config('mfakit.defaultIsoTimeDisplayFormat'));
         });
     }
 
@@ -144,7 +148,7 @@ class AppServiceProvider extends ServiceProvider
             return $component
                 ->native(false)
                 ->selectablePlaceholder(function (Forms\Components\Select $component) {
-                    return ! $component->isRequired();
+                    return !$component->isRequired();
                 })
                 ->searchable(function (Forms\Components\Select $component) {
                     return $component->hasRelationship();
@@ -204,14 +208,14 @@ class AppServiceProvider extends ServiceProvider
     {
         Tables\Table::configureUsing(function (Tables\Table $table) {
             return $table
-                ->defaultCurrency(config('evolutionkit.defaultCurrency'))
-                ->defaultDateDisplayFormat(config('evolutionkit.defaultDateDisplayFormat'))
-                ->defaultIsoDateDisplayFormat(config('evolutionkit.defaultIsoDateDisplayFormat'))
-                ->defaultDateTimeDisplayFormat(config('evolutionkit.defaultDateTimeDisplayFormat'))
-                ->defaultIsoDateTimeDisplayFormat(config('evolutionkit.defaultIsoDateTimeDisplayFormat'))
-                ->defaultNumberLocale(config('evolutionkit.defaultNumberLocale'))
-                ->defaultTimeDisplayFormat(config('evolutionkit.defaultTimeDisplayFormat'))
-                ->defaultIsoTimeDisplayFormat(config('evolutionkit.defaultIsoTimeDisplayFormat'));
+                ->defaultCurrency(config('mfakit.defaultCurrency'))
+                ->defaultDateDisplayFormat(config('mfakit.defaultDateDisplayFormat'))
+                ->defaultIsoDateDisplayFormat(config('mfakit.defaultIsoDateDisplayFormat'))
+                ->defaultDateTimeDisplayFormat(config('mfakit.defaultDateTimeDisplayFormat'))
+                ->defaultIsoDateTimeDisplayFormat(config('mfakit.defaultIsoDateTimeDisplayFormat'))
+                ->defaultNumberLocale(config('mfakit.defaultNumberLocale'))
+                ->defaultTimeDisplayFormat(config('mfakit.defaultTimeDisplayFormat'))
+                ->defaultIsoTimeDisplayFormat(config('mfakit.defaultIsoTimeDisplayFormat'));
         });
         Tables\Columns\Column::configureUsing(function (Tables\Columns\Column $column) {
             return $column->translateLabel();

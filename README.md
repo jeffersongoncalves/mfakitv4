@@ -1,14 +1,14 @@
 <div class="filament-hidden">
 
-![EvolutionKit](https://raw.githubusercontent.com/jeffersongoncalves/evolutionkitv4/4.x/art/jeffersongoncalves-evolutionkitv4.png)
+![MFAKit](https://raw.githubusercontent.com/jeffersongoncalves/mfakitv4/4.x/art/jeffersongoncalves-mfakitv4.png)
 
 </div>
 
-# EvolutionKit Start Kit Filament 4.x and Laravel 12.x
+# MFAKit Start Kit Filament 4.x and Laravel 12.x
 
-## About EvolutionKit
+## About MFAKit
 
-EvolutionKit is a robust starter kit built on Laravel 12.x and Filament 4.x, designed to accelerate the development of modern
+MFAKit is a robust starter kit built on Laravel 12.x and Filament 4.x, designed to accelerate the development of modern
 web applications with a ready-to-use multi-panel structure.
 
 ## Features
@@ -19,7 +19,7 @@ web applications with a ready-to-use multi-panel structure.
     - Admin Panel (`/admin`) - For system administrators
     - App Panel (`/app`) - For authenticated application users
     - Public Panel (frontend interface) - For visitors
-- **Environment Configuration** - Centralized configuration through the `config/evolutionkit.php` file
+- **Environment Configuration** - Centralized configuration through the `config/mfakit.php` file
 
 ## System Requirements
 
@@ -31,12 +31,12 @@ web applications with a ready-to-use multi-panel structure.
 
 Clone the repository
 ``` bash
-laravel new my-app --using=jeffersongoncalves/evolutionkitv4 --database=mysql
+laravel new my-app --using=jeffersongoncalves/mfakitv4 --database=mysql
 ```
 
 ###  Easy Installation
 
-EvolutionKit can be easily installed using the following command:
+MFAKit can be easily installed using the following command:
 
 ```bash
 php install.php
@@ -83,7 +83,7 @@ php artisan serve
 
 Clone the repository
 ```bash
-laravel new my-app --using=jeffersongoncalves/evolutionkitv4 --database=mysql
+laravel new my-app --using=jeffersongoncalves/mfakitv4 --database=mysql
 ```
 
 Move into the project directory
@@ -140,7 +140,7 @@ pnpm install
 
 ## Authentication Structure
 
-EvolutionKit comes pre-configured with a custom authentication system that supports different types of users:
+MFAKit comes pre-configured with a custom authentication system that supports different types of users:
 
 - `Admin` - For administrative panel access
 - `User` - For application panel access
@@ -167,16 +167,16 @@ Panels can be customized through their respective providers:
 - `app/Providers/Filament/AppPanelProvider.php`
 - `app/Providers/Filament/PublicPanelProvider.php`
 
-Alternatively, these settings are also consolidated in the `config/evolutionkit.php` file for easier management.
+Alternatively, these settings are also consolidated in the `config/mfakit.php` file for easier management.
 
 ### Themes and Colors
 
 Each panel can have its own color scheme, which can be easily modified in the corresponding Provider files or in the
-`evolutionkit.php` configuration file.
+`mfakit.php` configuration file.
 
 ### Configuration File
 
-The `config/evolutionkit.php` file centralizes the configuration of the starter kit, including:
+The `config/mfakit.php` file centralizes the configuration of the starter kit, including:
 
 - Panel routes
 - Middleware for each panel
@@ -329,7 +329,7 @@ protected function getHeaderActions(): array
         SendWhatsappMessageAction::make()
             // Optional sensible defaults
             ->number('5511999999999')
-            ->message('Hello from EvolutionKit!'),
+            ->message('Hello from MFAKit!'),
     ];
 }
 ```
@@ -385,7 +385,7 @@ Reference
 
 ## Resources
 
-EvolutionKit includes support for:
+MFAKit includes support for:
 
 - User and admin management
 - Multi-guard authentication system

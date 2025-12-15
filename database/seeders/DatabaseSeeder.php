@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
 
         Admin::factory()->create([
             'name' => 'Test Admin',
-            'email' => 'admin@evolutionkit.com',
+            'email' => 'admin@mfakit.com',
         ]);
 
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'user@evolutionkit.com',
+            'email' => 'user@mfakit.com',
         ]);
     }
 }

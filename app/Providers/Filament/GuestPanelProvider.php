@@ -28,10 +28,10 @@ class GuestPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Gray,
             ])
-            ->brandLogo(fn () => Vite::asset(config('evolutionkit.favicon.logo')))
+            ->brandLogo(fn () => Vite::asset(config('mfakit.favicon.logo')))
             ->brandLogoHeight('40px')
             ->viteTheme('resources/css/filament/guest/theme.css')
-            ->defaultThemeMode(config('evolutionkit.theme_mode', ThemeMode::Dark))
+            ->defaultThemeMode(config('mfakit.theme_mode', ThemeMode::Dark))
             ->discoverClusters(in: app_path('Filament/Guest/Clusters'), for: 'App\\Filament\\Guest\\Clusters')
             ->discoverPages(in: app_path('Filament/Guest/Pages'), for: 'App\\Filament\\Guest\\Pages')
             ->discoverResources(in: app_path('Filament/Guest/Resources'), for: 'App\\Filament\\Guest\\Resources')

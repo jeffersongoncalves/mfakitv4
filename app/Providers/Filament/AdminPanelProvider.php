@@ -22,6 +22,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use JeffersonGoncalves\Filament\MultiFactorWhatsApp\WhatsAppAuthentication;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
@@ -39,10 +40,10 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(fn () => Vite::asset(config('evolutionkit.favicon.logo')))
+            ->brandLogo(fn() => Vite::asset(config('mfakit.favicon.logo')))
             ->brandLogoHeight('40px')
             ->viteTheme('resources/css/filament/admin/theme.css')
-            ->defaultThemeMode(config('evolutionkit.theme_mode', ThemeMode::Dark))
+            ->defaultThemeMode(config('mfakit.theme_mode', ThemeMode::Dark))
             ->discoverClusters(in: app_path('Filament/Admin/Clusters'), for: 'App\\Filament\\Admin\\Clusters')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
@@ -94,7 +95,8 @@ class AdminPanelProvider extends PanelProvider
                     ->shouldShowSanctumTokens()
                     ->shouldShowMultiFactorAuthentication()
                     ->shouldShowBrowserSessionsForm()
-                    ->shouldShowAvatarForm(),
+                    ->shouldShowAvatarForm()
+                    ->shouldShowMultiFactorAuthentication(),
                 FilamentEvolutionPlugin::make()
                     ->whatsappInstanceResource()
                     ->viewMessageHistory()
@@ -102,9 +104,12 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->userMenuItems([
                 'profile' => Action::make('profile')
-                    ->label(fn (): string => __('My Profile'))
-                    ->url(fn (): string => EditProfilePage::getUrl())
+                    ->label(fn(): string => __('My Profile'))
+                    ->url(fn(): string => EditProfilePage::getUrl())
                     ->icon('heroicon-m-user-circle'),
+            ])
+            ->multiFactorAuthentication([
+                WhatsAppAuthentication::make(),
             ])
             ->unsavedChangesAlerts()
             ->passwordReset()

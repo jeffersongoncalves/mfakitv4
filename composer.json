@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "jeffersongoncalves/evolutionkitv4",
+    "name": "jeffersongoncalves/mfakitv4",
     "type": "project",
     "description": "The skeleton application for the FilamentPHP.",
     "keywords": [
@@ -19,6 +19,7 @@
         "achyutn/filament-log-viewer": "^1.2",
         "filament/filament": "^4.2",
         "jeffersongoncalves/filament-logo": "^2.0",
+        "jeffersongoncalves/filament-multifactor-whatsapp": "^1.0",
         "joaopaulolndev/filament-edit-profile": "^2.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",

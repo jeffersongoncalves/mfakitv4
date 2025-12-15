@@ -11,13 +11,13 @@ abstract class FaviconSupport
 {
     public static function routes(): void
     {
-        if (config('evolutionkit.favicon.enabled', false)) {
+        if (config('mfakit.favicon.enabled', false)) {
             Route::any('manifest.json', fn () => self::getManifestJson());
             Route::any('browserconfig.xml', fn () => self::getBrowserConfigXml());
-            if (! empty(config('evolutionkit.favicon.logo'))) {
+            if (! empty(config('mfakit.favicon.logo'))) {
                 Route::any('logo.png', fn () => self::getLogo());
             }
-            if (! empty(config('evolutionkit.favicon.favicon'))) {
+            if (! empty(config('mfakit.favicon.favicon'))) {
                 Route::any('favicon.ico', fn () => self::getFavicon());
             }
         }
@@ -25,7 +25,7 @@ abstract class FaviconSupport
 
     private static function getManifestJson(): JsonResponse
     {
-        $manifest = config('evolutionkit.favicon.manifest');
+        $manifest = config('mfakit.favicon.manifest');
         $manifest['icons'] = self::parseIcons($manifest['icons'] ?? []);
 
         return response()->json($manifest);
@@ -73,11 +73,11 @@ abstract class FaviconSupport
 
     private static function getLogo(): Response
     {
-        return response(Vite::content(config('evolutionkit.logo')), 200, ['Content-Type' => 'image/png']);
+        return response(Vite::content(config('mfakit.logo')), 200, ['Content-Type' => 'image/png']);
     }
 
     private static function getFavicon(): Response
     {
-        return response(Vite::content(config('evolutionkit.favicon')), 200, ['Content-Type' => 'image/x-icon']);
+        return response(Vite::content(config('mfakit.favicon')), 200, ['Content-Type' => 'image/x-icon']);
     }
 }

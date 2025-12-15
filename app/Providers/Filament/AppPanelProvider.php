@@ -21,6 +21,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use JeffersonGoncalves\Filament\MultiFactorWhatsApp\WhatsAppAuthentication;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 
@@ -36,10 +37,10 @@ class AppPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Green,
             ])
-            ->brandLogo(fn () => Vite::asset(config('evolutionkit.favicon.logo')))
+            ->brandLogo(fn () => Vite::asset(config('mfakit.favicon.logo')))
             ->brandLogoHeight('40px')
             ->viteTheme('resources/css/filament/app/theme.css')
-            ->defaultThemeMode(config('evolutionkit.theme_mode', ThemeMode::Dark))
+            ->defaultThemeMode(config('mfakit.theme_mode', ThemeMode::Dark))
             ->discoverClusters(in: app_path('Filament/App/Clusters'), for: 'App\\Filament\\App\\Clusters')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
@@ -91,6 +92,9 @@ class AppPanelProvider extends PanelProvider
                     ->label(fn (): string => __('My Profile'))
                     ->url(fn (): string => EditProfilePage::getUrl())
                     ->icon('heroicon-m-user-circle'),
+            ])
+            ->multiFactorAuthentication([
+                WhatsAppAuthentication::make(),
             ])
             ->unsavedChangesAlerts()
             ->passwordReset()

@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
+use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthentication;
 
 /**
  * @property int $id
@@ -58,7 +59,7 @@ use Illuminate\Support\Facades\Storage;
  * @mixin \Eloquent
  */
 #[ObservedBy(AdminObserver::class)]
-class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract
+class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, MustVerifyEmailContract, HasWhatsAppAuthentication
 {
     use Authenticatable;
     use Authorizable;
@@ -76,6 +77,8 @@ class Admin extends Model implements AuthenticatableContract, AuthorizableContra
         'custom_fields',
         'locale',
         'theme_color',
+        'phone',
+        'has_whatsapp_authentication',
     ];
 
     protected $hidden = [
@@ -107,6 +110,18 @@ class Admin extends Model implements AuthenticatableContract, AuthorizableContra
             'password' => 'hashed',
             'status' => 'boolean',
             'custom_fields' => 'array',
+            'has_whatsapp_authentication' => 'boolean',
         ];
+    }
+
+    public function hasWhatsAppAuthentication(): bool
+    {
+        return $this->has_whatsapp_authentication;
+    }
+
+    public function toggleWhatsAppAuthentication(bool $condition): void
+    {
+        $this->has_whatsapp_authentication = $condition;
+        $this->save();
     }
 }
