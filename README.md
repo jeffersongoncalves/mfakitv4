@@ -227,6 +227,54 @@ Quick access
 Reference
 - Plugin repository: https://github.com/joaopaulolndev/filament-edit-profile
 
+## Multi-Factor Authentication (MFA)
+
+This starter kit comes with Filament's built‑in Multi‑Factor Authentication already wired into the Admin and App panels. You can manage MFA from the My Profile page and/or force users to configure MFA before accessing the panel.
+
+Where it appears
+- Profile page: enabled via `->shouldShowMultiFactorAuthentication()` in the Edit Profile plugin (already set in both panels)
+- Setup flow: if MFA is required, users are redirected to the MFA setup screen until they finish enabling at least one provider
+
+Configured providers (default in this kit)
+```php
+// In app/Providers/Filament/AdminPanelProvider.php and AppPanelProvider.php
+->multiFactorAuthentication([
+    AppAuthentication::make()
+        ->brandName('MFA Kit Demo')
+        ->recoverable(), // allows recovery codes
+    EmailAuthentication::make(),
+    WhatsAppAuthentication::make(), // requires WhatsApp connector setup (see section below)
+])
+```
+
+Notes about providers
+- AppAuthentication: Time‑based one‑time codes (TOTP) with authenticator apps (e.g., Google Authenticator, 1Password). The `->recoverable()` option enables recovery codes for account lockout scenarios.
+- EmailAuthentication: Sends codes via the user’s email.
+- WhatsAppAuthentication: Sends codes via WhatsApp. Requires the WhatsApp Connector to be configured and connected. See “WhatsApp Connector — wallacemartinss/filament-whatsapp-conector” below.
+
+Requiring MFA and routes
+- To require MFA before accessing the panel, add:
+```php
+// In your Panel provider (Admin/App)
+->requiresMultiFactorAuthentication()
+```
+- Default setup URL when required:
+  - Admin: `/admin/multi-factor-authentication/set-up`
+  - App: `/app/multi-factor-authentication/set-up`
+- You can customize the route parts if needed:
+```php
+->multiFactorAuthenticationRoutePrefix('mfa') // default: "multi-factor-authentication"
+->setUpRequiredMultiFactorAuthenticationRouteSlug('setup') // default: "set-up"
+```
+
+Edit Profile integration
+- The MFA section on the profile page is shown when `->shouldShowMultiFactorAuthentication()` is enabled on the Edit Profile plugin instance (already enabled in this kit). You can toggle it per panel.
+
+Troubleshooting
+- Ensure mail settings are configured for EmailAuthentication (`.env` mailer setup)
+- For WhatsAppAuthentication, finish the WhatsApp Connector configuration and connect an instance before testing MFA codes
+- If you customize guards or user models, verify the panel’s `->authGuard(...)` matches your intended users
+
 ## WhatsApp Connector — wallacemartinss/filament-whatsapp-conector
 
 This starter kit ships with the WhatsApp Connector plugin (Evolution API v2 client) already required in `composer.json` and registered in the Admin panel. It lets you manage WhatsApp instances, display live QR Codes to connect, log webhooks, and send messages (text, images, videos, audio, documents) from Filament actions or your own services.
