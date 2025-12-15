@@ -17,7 +17,7 @@
     "require": {
         "php": "^8.3",
         "achyutn/filament-log-viewer": "^1.2",
-        "filament/filament": "^4.2",
+        "filament/filament": "^4.3",
         "jeffersongoncalves/filament-logo": "^2.0",
         "jeffersongoncalves/filament-multifactor-whatsapp": "^1.0",
         "joaopaulolndev/filament-edit-profile": "^2.0",
