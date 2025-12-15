@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use App\Observers\UserObserver;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthentication;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthenticationRecovery;
+use Filament\Auth\MultiFactor\Email\Contracts\HasEmailAuthentication;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -37,6 +40,8 @@ use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthent
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property bool $has_whatsapp_authentication
  * @property string|null $phone
+ * @property string|null $app_authentication_secret
+ * @property array<array-key, mixed>|null $app_authentication_recovery_codes
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  *
@@ -44,6 +49,8 @@ use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthent
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAppAuthenticationRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAppAuthenticationSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereAvatarUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCustomFields($value)
@@ -63,7 +70,7 @@ use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthent
  * @mixin \Eloquent
  */
 #[ObservedBy(UserObserver::class)]
-class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAvatar, HasWhatsAppAuthentication, MustVerifyEmailContract
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAppAuthentication, HasAppAuthenticationRecovery, HasAvatar, HasWhatsAppAuthentication, MustVerifyEmailContract, HasEmailAuthentication
 {
     use Authenticatable;
     use Authorizable;
@@ -82,12 +89,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'locale',
         'theme_color',
         'phone',
-        'has_whatsapp_authentication',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+        'app_authentication_secret',
+        'app_authentication_recovery_codes',
     ];
 
     /**
@@ -100,11 +108,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         }
 
         return true;
-    }
-
-    public function canImpersonate(): bool
-    {
-        return false;
     }
 
     public function getFilamentAvatarUrl(): ?string
@@ -122,6 +125,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
             'status' => 'boolean',
             'custom_fields' => 'array',
             'has_whatsapp_authentication' => 'boolean',
+            'app_authentication_secret' => 'encrypted',
+            'app_authentication_recovery_codes' => 'encrypted:array',
+            'has_email_authentication' => 'boolean',
         ];
     }
 
@@ -133,6 +139,44 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function toggleWhatsAppAuthentication(bool $condition): void
     {
         $this->has_whatsapp_authentication = $condition;
+        $this->save();
+    }
+
+    public function getAppAuthenticationSecret(): ?string
+    {
+        return $this->app_authentication_secret;
+    }
+
+    public function saveAppAuthenticationSecret(?string $secret): void
+    {
+        $this->app_authentication_secret = $secret;
+        $this->save();
+    }
+
+    public function getAppAuthenticationHolderName(): string
+    {
+        return $this->email;
+    }
+
+    public function getAppAuthenticationRecoveryCodes(): ?array
+    {
+        return $this->app_authentication_recovery_codes;
+    }
+
+    public function saveAppAuthenticationRecoveryCodes(?array $codes): void
+    {
+        $this->app_authentication_recovery_codes = $codes;
+        $this->save();
+    }
+
+    public function hasEmailAuthentication(): bool
+    {
+        return $this->has_email_authentication;
+    }
+
+    public function toggleEmailAuthentication(bool $condition): void
+    {
+        $this->has_email_authentication = $condition;
         $this->save();
     }
 }

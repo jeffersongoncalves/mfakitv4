@@ -5,6 +5,8 @@ namespace App\Providers\Filament;
 use AchyutN\FilamentLogViewer\FilamentLogViewer;
 use App\Filament\Admin\Pages\Auth\Login;
 use Filament\Actions\Action;
+use Filament\Auth\MultiFactor\App\AppAuthentication;
+use Filament\Auth\MultiFactor\Email\EmailAuthentication;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -109,6 +111,10 @@ class AdminPanelProvider extends PanelProvider
                     ->icon('heroicon-m-user-circle'),
             ])
             ->multiFactorAuthentication([
+                AppAuthentication::make()
+                    ->brandName('MFA Kit Demo')
+                    ->recoverable(),
+                EmailAuthentication::make(),
                 WhatsAppAuthentication::make(),
             ])
             ->unsavedChangesAlerts()
