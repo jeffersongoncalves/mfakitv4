@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.5.0 - 2026-01-07
+
+### What's Changed
+
+* Add funding information for GitHub sponsors by @jeffersongoncalves in https://github.com/jeffersongoncalves/mfakitv4/pull/7
+* Update funding contributors in FUNDING.yml by @jeffersongoncalves in https://github.com/jeffersongoncalves/mfakitv4/pull/8
+* build(deps): bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/mfakitv4/pull/9
+* build(deps): bump the actions-deps group with 4 updates by @dependabot[bot] in https://github.com/jeffersongoncalves/mfakitv4/pull/10
+
+### New Contributors
+
+* @jeffersongoncalves made their first contribution in https://github.com/jeffersongoncalves/mfakitv4/pull/7
+
+**Full Changelog**: https://github.com/jeffersongoncalves/mfakitv4/compare/4.4.0...4.5.0
+
 ## 4.4.0 - 2025-12-30
 
 ### What's Changed
