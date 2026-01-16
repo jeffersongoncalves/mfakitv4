@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 4.5.3 - 2026-01-16
+
+### What's Changed
+
+* build(deps): bump laravel/framework from 12.46.0 to 12.47.0 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/mfakitv4/pull/13
+* build(deps): bump wallacemartinss/filament-whatsapp-conector from 1.0.0 to 1.0.1 in the actions-deps group by @dependabot[bot] in https://github.com/jeffersongoncalves/mfakitv4/pull/14
+
+**Full Changelog**: https://github.com/jeffersongoncalves/mfakitv4/compare/4.5.2...4.5.3
+
 ## 4.5.2 - 2026-01-09
 
 ### What's Changed
