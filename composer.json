@@ -27,13 +27,13 @@
     "require": {
         "php": "^8.3",
         "achyutn/filament-log-viewer": "^1.2",
-        "filament/filament": "^4.3",
+        "filament/filament": "^4.5",
         "jeffersongoncalves/filament-logo": "^2.0",
         "jeffersongoncalves/filament-multifactor-whatsapp": "^1.0",
         "joaopaulolndev/filament-edit-profile": "^2.0",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.6",
+        "livewire/livewire": "^3.7",
         "wallacemartinss/filament-icon-picker": "^1.4",
         "wallacemartinss/filament-whatsapp-conector": "^1.0"
     },
