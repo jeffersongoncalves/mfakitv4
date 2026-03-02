@@ -1,6 +1,6 @@
 <div class="filament-hidden">
 
-![MFAKit](https://raw.githubusercontent.com/jeffersongoncalves/mfakitv4/main/art/jeffersongoncalves-mfakitv4.png)
+![MFAKit v4](https://raw.githubusercontent.com/jeffersongoncalves/mfakitv4/main/art/jeffersongoncalves-mfakitv4.png)
 
 </div>
 
