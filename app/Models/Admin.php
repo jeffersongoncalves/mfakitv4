@@ -22,7 +22,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
+use JeffersonGoncalves\Filament\MultiFactorPasskeys\Contracts\HasPasskeyAuthentication;
 use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthentication;
+use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
 
 /**
  * @property int $id
@@ -70,7 +72,7 @@ use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthent
  * @mixin \Eloquent
  */
 #[ObservedBy(AdminObserver::class)]
-class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAppAuthentication, HasAppAuthenticationRecovery, HasAvatar, HasEmailAuthentication, HasWhatsAppAuthentication, MustVerifyEmailContract
+class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAppAuthentication, HasAppAuthenticationRecovery, HasAvatar, HasEmailAuthentication, HasWhatsAppAuthentication, MustVerifyEmailContract, HasPasskeyAuthentication
 {
     use Authenticatable;
     use Authorizable;
@@ -78,6 +80,7 @@ class Admin extends Model implements AuthenticatableContract, AuthorizableContra
     use HasFactory;
     use MustVerifyEmail;
     use Notifiable;
+    use InteractsWithPasskeys;
 
     protected $fillable = [
         'status',
@@ -128,6 +131,11 @@ class Admin extends Model implements AuthenticatableContract, AuthorizableContra
             'app_authentication_recovery_codes' => 'encrypted:array',
             'has_email_authentication' => 'boolean',
         ];
+    }
+
+    public function hasPasskeyAuthentication(): bool
+    {
+        return $this->passkeys()->exists();
     }
 
     public function hasWhatsAppAuthentication(): bool

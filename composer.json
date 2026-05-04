@@ -30,6 +30,7 @@
         "dutchcodingcompany/filament-developer-logins": "^2.1",
         "filament/filament": "^4.5",
         "jeffersongoncalves/filament-logo": "^2.0",
+        "jeffersongoncalves/filament-multifactor-passkeys": "^1.0",
         "jeffersongoncalves/filament-multifactor-whatsapp": "^1.0",
         "joaopaulolndev/filament-edit-profile": "^2.0",
         "laravel/framework": "^12.0",

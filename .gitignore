@@ -26,5 +26,6 @@ phpstan.neon
 /nbproject
 .rnd
 .output.txt
-
 .claude/settings.local.json
+/.devhub.json
+/herd.yml

@@ -24,6 +24,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use JeffersonGoncalves\Filament\MultiFactorPasskeys\MultiFactorPasskeysPlugin;
+use JeffersonGoncalves\Filament\MultiFactorPasskeys\PasskeyAuthentication;
 use JeffersonGoncalves\Filament\MultiFactorWhatsApp\WhatsAppAuthentication;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
@@ -103,6 +105,7 @@ class AdminPanelProvider extends PanelProvider
                     ->whatsappInstanceResource()
                     ->viewMessageHistory()
                     ->viewWebhookLogs(),
+                MultiFactorPasskeysPlugin::make(),
             ])
             ->userMenuItems([
                 'profile' => Action::make('profile')
@@ -116,6 +119,7 @@ class AdminPanelProvider extends PanelProvider
                     ->recoverable(),
                 EmailAuthentication::make(),
                 WhatsAppAuthentication::make(),
+                PasskeyAuthentication::make(),
             ])
             ->unsavedChangesAlerts()
             ->passwordReset()
