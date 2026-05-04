@@ -20,7 +20,10 @@ use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
+use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use JeffersonGoncalves\Filament\MultiFactorPasskeys\Contracts\HasPasskeyAuthentication;
 use JeffersonGoncalves\Filament\MultiFactorWhatsApp\Contracts\HasWhatsAppAuthentication;
@@ -31,20 +34,20 @@ use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
  * @property bool $status
  * @property string $name
  * @property string $email
- * @property \Illuminate\Support\Carbon|null $email_verified_at
+ * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
  * @property string|null $avatar_url
  * @property array<array-key, mixed>|null $custom_fields
  * @property string|null $locale
  * @property string|null $theme_color
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property bool $has_whatsapp_authentication
  * @property string|null $phone
  * @property string|null $app_authentication_secret
  * @property array<array-key, mixed>|null $app_authentication_recovery_codes
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
+ * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  *
  * @method static \Database\Factories\AdminFactory factory($count = null, $state = [])
@@ -72,15 +75,15 @@ use Spatie\LaravelPasskeys\Models\Concerns\InteractsWithPasskeys;
  * @mixin \Eloquent
  */
 #[ObservedBy(AdminObserver::class)]
-class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAppAuthentication, HasAppAuthenticationRecovery, HasAvatar, HasEmailAuthentication, HasWhatsAppAuthentication, MustVerifyEmailContract, HasPasskeyAuthentication
+class Admin extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, FilamentUser, HasAppAuthentication, HasAppAuthenticationRecovery, HasAvatar, HasEmailAuthentication, HasPasskeyAuthentication, HasWhatsAppAuthentication, MustVerifyEmailContract
 {
     use Authenticatable;
     use Authorizable;
     use CanResetPassword;
     use HasFactory;
+    use InteractsWithPasskeys;
     use MustVerifyEmail;
     use Notifiable;
-    use InteractsWithPasskeys;
 
     protected $fillable = [
         'status',
