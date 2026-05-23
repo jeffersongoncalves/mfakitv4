@@ -2359,16 +2359,16 @@
         },
         {
             "name": "jeffersongoncalves/filament-multifactor-whatsapp",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp.git",
-                "reference": "61999987a61ed1f6274e14198cbde4b191ee3e9c"
+                "reference": "8524e1a0e3e224e75362277e6f890fbb14ce6297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeffersongoncalves/filament-multifactor-whatsapp/zipball/61999987a61ed1f6274e14198cbde4b191ee3e9c",
-                "reference": "61999987a61ed1f6274e14198cbde4b191ee3e9c",
+                "url": "https://api.github.com/repos/jeffersongoncalves/filament-multifactor-whatsapp/zipball/8524e1a0e3e224e75362277e6f890fbb14ce6297",
+                "reference": "8524e1a0e3e224e75362277e6f890fbb14ce6297",
                 "shasum": ""
             },
             "require": {
@@ -2386,7 +2386,7 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "JeffersonGoncalves\\Filament\\MultiFactorWhatsApp\\MultiFactorWhatsappServiceProvider"
+                        "JeffersonGoncalves\\Filament\\MultiFactorWhatsApp\\MultiFactorWhatsAppServiceProvider"
                     ]
                 }
             },
@@ -2427,7 +2427,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp/issues",
-                "source": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp/tree/1.0.3"
+                "source": "https://github.com/jeffersongoncalves/filament-multifactor-whatsapp/tree/1.0.4"
             },
             "funding": [
                 {
@@ -2435,7 +2435,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-04T03:23:44+00:00"
+            "time": "2026-05-23T02:16:10+00:00"
         },
         {
             "name": "jenssegers/agent",
