@@ -27,6 +27,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use JeffersonGoncalves\Filament\MultiFactorPasskeys\MultiFactorPasskeysPlugin;
 use JeffersonGoncalves\Filament\MultiFactorPasskeys\PasskeyAuthentication;
 use JeffersonGoncalves\Filament\MultiFactorWhatsApp\WhatsAppAuthentication;
+use JeffersonGoncalves\Filament\Pwa\FilamentPwaPlugin;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
@@ -44,7 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->brandLogo(fn () => Vite::asset(config('mfakit.favicon.logo')))
+            ->brandLogo(fn () => Vite::asset(config('mfakit.logo')))
             ->brandLogoHeight('40px')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->defaultThemeMode(config('mfakit.theme_mode', ThemeMode::Dark))
@@ -79,6 +80,7 @@ class AdminPanelProvider extends PanelProvider
                 __('Settings'),
             ])
             ->plugins([
+                FilamentPwaPlugin::make(),
                 FilamentLogViewer::make()
                     ->navigationGroup(__('Settings')),
                 FilamentEditProfilePlugin::make()
