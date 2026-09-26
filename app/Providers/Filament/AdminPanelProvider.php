@@ -3,7 +3,6 @@
 namespace App\Providers\Filament;
 
 use AchyutN\FilamentLogViewer\FilamentLogViewer;
-use App\Filament\Admin\Pages\Auth\Login;
 use Filament\Actions\Action;
 use Filament\Auth\MultiFactor\App\AppAuthentication;
 use Filament\Auth\MultiFactor\Email\EmailAuthentication;
@@ -24,10 +23,13 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use JeffersonGoncalves\Filament\Admin\AdminPlugin;
+use JeffersonGoncalves\Filament\Admin\Pages\Auth\Login;
 use JeffersonGoncalves\Filament\MultiFactorPasskeys\MultiFactorPasskeysPlugin;
 use JeffersonGoncalves\Filament\MultiFactorPasskeys\PasskeyAuthentication;
 use JeffersonGoncalves\Filament\MultiFactorWhatsApp\WhatsAppAuthentication;
 use JeffersonGoncalves\Filament\Pwa\FilamentPwaPlugin;
+use JeffersonGoncalves\Filament\User\UserPlugin;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 use WallaceMartinss\FilamentEvolution\FilamentEvolutionPlugin;
@@ -80,6 +82,8 @@ class AdminPanelProvider extends PanelProvider
                 __('Settings'),
             ])
             ->plugins([
+                AdminPlugin::make(),
+                UserPlugin::make(),
                 FilamentPwaPlugin::make(),
                 FilamentLogViewer::make()
                     ->navigationGroup(__('Settings')),
