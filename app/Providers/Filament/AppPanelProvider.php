@@ -25,6 +25,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use JeffersonGoncalves\Filament\MultiFactorWhatsApp\WhatsAppAuthentication;
 use JeffersonGoncalves\Filament\Pwa\FilamentPwaPlugin;
 use JeffersonGoncalves\Filament\User\Pages\Auth\Login;
+use JeffersonGoncalves\SecurityHeaders\Middleware\SecurityHeaders;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Joaopaulolndev\FilamentEditProfile\Pages\EditProfilePage;
 
@@ -56,6 +57,7 @@ class AppPanelProvider extends PanelProvider
                 Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
+                SecurityHeaders::class,
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,
